@@ -3,31 +3,35 @@ import heroImage from '../../Assets/care-aid-01.jpg';
 import { BiMap } from 'react-icons/bi';
 import { BsClock } from 'react-icons/bs';
 import { IoCallOutline } from 'react-icons/io5';
+import { FaTooth } from 'react-icons/fa';
 
 const Home = () => {
-return (
-    <div className='container mx-auto'>
-        <div className="hero__section py-24">
-            <div class="grid grid-col-4 grid-flow-col gap-4">
-                <div className='hero__section__left flex items-center col-span-3'>
-                    <div className="hero__section__detail">
-                        <h1 className='font-black text-6xl leading-tight'>Virtual healthcare <br></br> for you</h1>
-                        <p className='text-2xl leading-10 my-5'>Care Aid provides progressive, and affordable <br></br>
-                            healthcare, accessible on mobile and online <br></br>
-                            for everyone
-                        </p>
-                        <button class="btn btn-primary">Consult Today</button>
+    return (
+        <div className='container mx-auto'>
+            <div className="hero__section py-24">
+                <div class="grid lg:grid-cols-2 md:grid-cols-1">
+                    {/* LEFT SECTION */}
+                    <div className='hero__section__left '>
+                        <div className="hero__section__detail">
+                            <h1 className='font-black text-6xl leading-tight'>Virtual healthcare <br></br> for you</h1>
+                            <p className='text-2xl leading-10 my-5'>Care Aid provides progressive, and affordable <br></br>
+                                healthcare, accessible on mobile and online <br></br>
+                                for everyone
+                            </p>
+                            <button class="btn btn-primary">Consult Today</button>
+                        </div>
                     </div>
-                </div>
-                <div className='hero__section__right '>
-                    <img className='hero__image rounded-2xl w-9/12 ml-auto' src={heroImage} alt="" />
+                    {/* RIGHT SECTION */}
+                    <div className='hero__section__right '>
+                        <img className='hero__image rounded-2xl w-9/12 md:w-full sm:w-full' src={heroImage} alt="" />
+                    </div>
+
+
                 </div>
             </div>
-        </div>
-
-        <div className="care__aid__info py-20">
-            <div className='grid grid-col-4 grid-flow-col gap-4'>
-                <div class="card w-96 bg-base-100 shadow-xl">
+            <div className="care__aid__info py-20">
+                <div className='grid lg:grid-cols-3 md:grid-cols-1'>
+                    <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body mx-auto">
                             <div className="flex">
                                 <div className="box__icon text-6xl flex items-center mr-4">
@@ -40,7 +44,7 @@ return (
                             </div>
                         </div>
                     </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body mx-auto">
                             <div className="flex">
                                 <div className="box__icon text-6xl flex items-center mr-4">
@@ -53,7 +57,7 @@ return (
                             </div>
                         </div>
                     </div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card w-96 bg-base-100 shadow-xl">
                         <div class="card-body mx-auto">
                             <div className="flex">
                                 <div className="box__icon text-6xl flex items-center mr-4">
@@ -66,11 +70,58 @@ return (
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="our__service__section py-20">
+                <div className="our__service__heading">
+                    <h1 className='font-bold text-5xl text-center'>Services We Provide</h1>
+                </div>
+                <div className="our__service__info py-20">
+                    <div className="grid gap-9 lg:grid-cols-3 md:grid-cols-1">
+                        <div class="card w-96 bg-base-100 border mx-auto">
+                            <div class="card-body">
+                                <div className="box__icon text-6xl mx-auto">
+                                    <FaTooth></FaTooth>
+                                </div>
+                                <div className="box__info text-center">
+                                    <h2 className='text-2xl font-semibold my-4'>Fluoride Treatment</h2>
+                                    <p>Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card w-96 bg-base-100 border  mx-auto">
+                            <div class="card-body">
+                                <div className="box__icon text-6xl mx-auto">
+                                    <FaTooth></FaTooth>
+                                </div>
+                                <div className="box__info text-center">
+                                    <h2 className='text-2xl font-semibold my-4'>Fluoride Treatment</h2>
+                                    <p>Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the</p>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card w-96 bg-base-100 border  mx-auto">
+                            <div class="card-body">
+                                <div className="box__icon text-6xl mx-auto">
+                                    <FaTooth></FaTooth>
+                                </div>
+                                <div className="box__info text-center">
+                                    <h2 className='text-2xl font-semibold my-4'>Fluoride Treatment</h2>
+                                    <p>Lorem Ipsum is simply dummy printing and typesetting indust Ipsum has been the</p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="info__section">
 
             </div>
         </div>
-    </div>
-);
+    );
 };
 
 export default Home;
