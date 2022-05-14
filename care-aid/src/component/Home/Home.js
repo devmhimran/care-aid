@@ -4,6 +4,7 @@ import Hero from '../Shared/Hero';
 import CareAidInfo from '../Shared/CareAidInfo';
 import InfoSection from '../Shared/InfoSection';
 import OurService from '../Shared/OurService';
+import ContactUs from '../Shared/ContactUs';
 
 const Home = () => {
     return (
@@ -12,6 +13,7 @@ const Home = () => {
             <CareAidInfo></CareAidInfo>
             <OurService></OurService>
             <InfoSection></InfoSection>
+            <ContactUs></ContactUs>
         </div>
     );
 };
