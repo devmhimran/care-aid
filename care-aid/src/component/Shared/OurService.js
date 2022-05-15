@@ -10,7 +10,7 @@ const OurService = () => {
                     <h1 className='font-bold text-4xl lg:text-5xl text-center'>Services We Provide</h1>
                 </div>
                 <div className="our__service__info py-10 lg:py-20">
-                    <div className="grid gap-9 lg:grid-cols-3 md:grid-cols-1">
+                    <div className="grid gap-9 grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
                         <div className="card w-96 bg-base-100 border mx-auto">
                             <div className="card-body">
                                 <div className="box__icon text-6xl mx-auto">

@@ -6,7 +6,7 @@ import { IoCallOutline } from 'react-icons/io5';
 const CareAidInfo = () => {
     return (
         <div className="care__aid__info py-16 lg:py-20">
-                <div className='grid gap-8 lg:grid-cols-3 md:grid-cols-1'>
+                <div className='grid gap-8 grid-cols-1 lg:grid-cols-3 md:grid-cols-2'>
                     <div className="card w-96 bg-base-100 shadow-xl mx-auto">
                         <div className="card-body mx-auto">
                             <div className="flex">

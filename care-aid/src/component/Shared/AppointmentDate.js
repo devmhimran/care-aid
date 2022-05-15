@@ -7,7 +7,6 @@ import './shared.css';
 
 const AppointmentDate = () => {
     const [selected, setSelected] = useState(new Date());
-
     let footer = <p>Please pick a day.</p>;
     if (selected) {
         footer = <p>You picked {format(selected, 'PP')}.</p>;

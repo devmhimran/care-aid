@@ -13,7 +13,7 @@ const InfoSection = () => {
                             <div className="info__section__right_detail">
                                 <div className="info__section__right__detail__main">
                                     <h1 className='font-bold text-4xl lg:text-5xl leading-tight'>Exceptional Dental Care,<br></br>on Your Terms</h1>
-                                    <p className='lg:text-base my-8 leading-7'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+                                    <p className='lg:leading-8 lg:text-base my-8'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
                                     <button className="btn btn-primary">Get Started</button>
                                 </div>
                             </div>
