@@ -10,7 +10,7 @@ const ContactUs = () => {
                 backgroundPosition: 'center center',
                 backgroundSize: 'cover'
             }
-        } className='contact__use rounded-2xl py-16 lg:py-20 px-4'>
+        } className='contact__us rounded-2xl py-16 lg:py-20 px-4'>
             <div className="container">
                 <div className="contact__us__heading">
                     <h1 className='font-bold text-4xl lg:text-5xl text-center mb-5'>Stay connected with us</h1>
