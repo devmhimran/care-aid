@@ -17,13 +17,13 @@ const ContactUs = () => {
                 </div>
                 <form className='mx-auto'>
                     <div className="contact__input w-full lg:w-6/12 mx-auto py-4">
-                        <input type="text" placeholder="Email Address" class="input input-bordered input-primary w-full bg-transparent" />
+                        <input type="text" placeholder="Email Address" className="input input-bordered input-primary w-full bg-transparent" />
                     </div>
                     <div className="contact__input w-full lg:w-6/12 mx-auto py-4">
-                        <input type="text" placeholder="Name" class="input input-bordered input-primary w-full bg-transparent" />
+                        <input type="text" placeholder="Name" className="input input-bordered input-primary w-full bg-transparent" />
                     </div>
                     <div className="contact__input w-full lg:w-6/12 mx-auto py-4">
-                        <textarea class="textarea w-full textarea-primary py-5 bg-transparent" placeholder="Message"></textarea>
+                        <textarea className="textarea w-full textarea-primary py-5 bg-transparent" placeholder="Message"></textarea>
                     </div>
                     <div className="contact__input w-full lg:w-6/12 mx-auto py-4 text-center">
                         <button className="btn btn-primary btn-wide">Send</button>
