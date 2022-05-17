@@ -7,6 +7,7 @@ import Appointment from './component/Appointment/Appointment';
 import Reviews from './component/Reviews/Reviews';
 import Contact from './component/Contact/Contact';
 import Login from './component/Login/Login';
+import Register from './component/Register/Register';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/reviews" element={<Reviews></Reviews>} />
         <Route path="/appointment" element={<Appointment></Appointment>} />
         <Route path="/contact-us" element={<Contact></Contact>} />
+        <Route path="/register" element={<Register></Register>} />
         <Route path="/login" element={<Login></Login>} />
       </Routes>
     </div>

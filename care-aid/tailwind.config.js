@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {},
+    careAid: {
+      white: '#ffffff',
+    }
   },
   screens: {
     'phone' : '450px',
