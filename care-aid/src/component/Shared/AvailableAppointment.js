@@ -12,7 +12,7 @@ const AvailableAppointment = ({selected}) => {
         .then(data => setServices(data))
     },[]);
     return (
-        <div className='container py-16 mx-10 lg:py-20'>
+        <div className='container py-16 mx-auto lg:py-20'>
             <p className='text-lg text-center text-primary font-semibold'>Available Services on {format(selected, 'PP')}</p>
             <div className="grid gap-5 grid-cols-1 lg:grid-cols-3 md:grid-cols-2 py-14">
                 {
