@@ -15,7 +15,7 @@ const Login = () => {
 
                         <div class="card-body">
                             <div className="card-title">
-                                <h1 className='text-3xl font-extrabold'>Login</h1>
+                                <h1 className='text-3xl font-extrabold'>Sign in</h1>
                             </div>
                             <div class="form-control">
                                 <label class="label">

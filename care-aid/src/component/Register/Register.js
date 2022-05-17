@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import registerImage from '../../Assets/care-aid-10.jpg';
+import registerImage from '../../Assets/care-aid-11.jpg';
 import { AiOutlineGoogle } from 'react-icons/ai';
 
 const Register = () => {
@@ -15,7 +15,7 @@ const Register = () => {
 
                         <div class="card-body">
                             <div className="card-title">
-                                <h1 className='text-3xl font-extrabold'>register</h1>
+                                <h1 className='text-3xl font-extrabold'>Sign up</h1>
                             </div>
                             <div class="form-control">
                                 <label class="label">
