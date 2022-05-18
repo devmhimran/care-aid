@@ -1,38 +1,45 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import registerImage from '../../Assets/care-aid-11.jpg';
 import { AiOutlineGoogle } from 'react-icons/ai';
 import { useForm } from 'react-hook-form';
 import { async } from '@firebase/util';
-import { useCreateUserWithEmailAndPassword, useSendEmailVerification} from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [errorMessage, setErrorMessage] = useState('');
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        userError,
-      ] = useCreateUserWithEmailAndPassword(auth);
-      const [sendEmailVerification, sending, emailError] = useSendEmailVerification(auth);
+    const [createUserWithEmailAndPassword, user, loading, error,] = useCreateUserWithEmailAndPassword(auth);
+    const [sendEmailVerification, sending, emailError] = useSendEmailVerification(auth);
+    const [updateProfile, updating, userUpdateError] = useUpdateProfile(auth);
+    const location = useLocation();
+    const navigate = useNavigate();
+    let userError ;
+
     const onSubmit = async (data) => {
-        console.log(data);
         const name = data.name;
         const email = data.email;
-        const password = data.email;
+        const password = data.password;
         const confirmPassword = data.confirmPassword;
-
-        if(password !== confirmPassword){
+        
+       
+        if (password !== confirmPassword) {
             setErrorMessage('Password not matched');
-        }else{
-            await createUserWithEmailAndPassword(email, password);
-            await updateProfile({displayName: name});
-            await sendEmailVerification();
         }
+        await createUserWithEmailAndPassword(email, password);
+        await updateProfile({ displayName: data.name });
+        await sendEmailVerification();    
     };
+    if (error) {
+        userError = error?.message;
+    }
+    let from = location.state?.from?.pathname || "/";
+    if(user){
+        navigate(from, {replace:true});
+    }
+    console.log(user)
     return (
         <div className='container mx-auto'>
             <div className="hero p-8 lg:p-40 rounded-2xl">
@@ -74,17 +81,17 @@ const Register = () => {
                                     <input name='email' type="email" placeholder="Email" className="input input-bordered" {
                                         ...register("email",
                                             {
-                                                required:{
+                                                required: {
                                                     value: true,
                                                     message: "Email Required"
                                                 },
-                                                pattern:{
+                                                pattern: {
                                                     value: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                                                     message: "Enter valid email"
                                                 }
                                             })} />
-                                            {errors.email?.type === 'required' && <span className='text-sm text-red-500 mt-2'>{errors.email.message}</span>}
-                                            {errors.email?.type === 'pattern' &&  <span className='text-sm text-red-500 mt-2'>{errors.email.message}</span>}
+                                    {errors.email?.type === 'required' && <span className='text-sm text-red-500 mt-2'>{errors.email.message}</span>}
+                                    {errors.email?.type === 'pattern' && <span className='text-sm text-red-500 mt-2'>{errors.email.message}</span>}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -101,18 +108,18 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input name='password' type="password" placeholder="Password" className="input input-bordered"  {...register("password", 
-                                    { 
-                                        required: {
-                                            value: true,
-                                            message: 'Password required'
-                                        },
-                                        minLength: {
-                                            value: 6,
-                                            message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
-                                          } 
-                                        
-                                    })} />
+                                    <input name='password' type="password" placeholder="Password" className="input input-bordered"  {...register("password",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: 'Password required'
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
+                                            }
+
+                                        })} />
                                     {errors.password?.type === 'required' && <span className='text-sm text-red-500 mt-2'>{errors.password.message}</span>}
                                     {errors.password?.type === 'minLength' && <span className='text-sm text-red-500 mt-2'>{errors.password.message}</span>}
                                 </div>
@@ -120,21 +127,22 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text">Confirm Password</span>
                                     </label>
-                                    <input name='confirmPassword' type="password" placeholder="Password" className="input input-bordered"  {...register("confirmPassword", 
-                                    { 
-                                        required: {
-                                            value: true,
-                                            message: 'Confirm password required'
-                                        },
-                                        minLength: {
-                                            value: 6,
-                                            message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
-                                          } 
-                                        
-                                    })} />
+                                    <input name='confirmPassword' type="password" placeholder="Password" className="input input-bordered"  {...register("confirmPassword",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: 'Confirm password required'
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
+                                            }
+
+                                        })} />
                                     {errors.confirmPassword?.type === 'required' && <span className='text-sm text-red-500 mt-2'>{errors.confirmPassword.message}</span>}
                                     {errors.confirmPassword?.type === 'minLength' && <span className='text-sm text-red-500 mt-2'>{errors.confirmPassword.message}</span>}
                                     <span className='text-sm text-red-500 mt-2'>{errorMessage}</span>
+                                    <span className='mt-2 text-red-500'>{userError}</span>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Sign up</button>

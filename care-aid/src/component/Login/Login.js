@@ -1,6 +1,6 @@
 import React from 'react';
 import loginImage from '../../Assets/care-aid-10.jpg';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { useForm } from "react-hook-form";
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
@@ -9,20 +9,24 @@ import auth from '../firebase.init';
 
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useSignInWithEmailAndPassword(auth);
-    const onSubmit = data => {
+    const [signInWithEmailAndPassword,user, loading ,error] = useSignInWithEmailAndPassword(auth);
+    const navigate = useNavigate();
+    const location = useLocation();
+    let userError;
+
+    console.log(user)
+    const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;
         signInWithEmailAndPassword(email, password);
+        
     };
-    let userError;
-    if(error){
+    if (error) {
         userError = error?.message;
+    }
+    let from = location.state?.from?.pathname || "/";
+    if(user){
+        navigate(from, {replace:true});
     }
     return (
         <div className='container mx-auto'>
@@ -62,18 +66,18 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input name='password' type="password" placeholder="Password" className="input input-bordered"  {...register("password", 
-                                    { 
-                                        required: {
-                                            value: true,
-                                            message: 'Password required'
-                                        },
-                                        minLength: {
-                                            value: 6,
-                                            message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
-                                          } 
-                                        
-                                    })} />
+                                    <input name='password' type="password" placeholder="Password" className="input input-bordered"  {...register("password",
+                                        {
+                                            required: {
+                                                value: true,
+                                                message: 'Password required'
+                                            },
+                                            minLength: {
+                                                value: 6,
+                                                message: 'Must be 6 characters' // JS only: <p>error message</p> TS only support string
+                                            }
+
+                                        })} />
                                     {errors.password?.type === 'required' && <span className='text-sm text-red-500 mt-2'>{errors.password.message}</span>}
                                     {errors.password?.type === 'minLength' && <span className='text-sm text-red-500 mt-2'>{errors.password.message}</span>}
                                     <label className="label">

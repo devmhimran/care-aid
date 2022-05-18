@@ -8,24 +8,34 @@ import Reviews from './component/Reviews/Reviews';
 import Contact from './component/Contact/Contact';
 import Login from './component/Login/Login';
 import Register from './component/Register/Register';
+import ErrorPage from './component/ErrorPage/ErrorPage';
+import RequireAuth from './component/RequireAuth/RequireAuth';
 
 
 function App() {
   return (
     <div >
-       <Navbar></Navbar>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About></About>} />
-        <Route path="/appointment" element={<Appointment></Appointment>} />
         <Route path="/reviews" element={<Reviews></Reviews>} />
-        <Route path="/appointment" element={<Appointment></Appointment>} />
-        <Route path="/contact-us" element={<Contact></Contact>} />
+        <Route path="/appointment" element={
+          <RequireAuth>
+            <Appointment></Appointment>
+          </RequireAuth>
+        } />
+        <Route path="/contact-us" element={
+          <RequireAuth>
+            <Contact></Contact>
+          </RequireAuth>
+        } />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/login" element={<Login></Login>} />
+        <Route path="*" element={<ErrorPage></ErrorPage>} />
       </Routes>
     </div>
-    
+
   );
 }
 
