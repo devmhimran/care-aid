@@ -10,6 +10,7 @@ import Login from './component/Login/Login';
 import Register from './component/Register/Register';
 import ErrorPage from './component/ErrorPage/ErrorPage';
 import RequireAuth from './component/RequireAuth/RequireAuth';
+import Loading from './component/Loading/Loading';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         } />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/login" element={<Login></Login>} />
+        <Route path="/loading" element={<Loading></Loading>} />
         <Route path="*" element={<ErrorPage></ErrorPage>} />
       </Routes>
     </div>

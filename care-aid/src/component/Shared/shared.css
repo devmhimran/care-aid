@@ -1,13 +1,13 @@
 .rdp-cell{
     padding: 10px;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 762px) {
     .rdp-cell{
-        padding: 8px;
+        padding: 5px;
     }
   }
 @media only screen and (max-width: 480px) {
     .rdp-cell{
-        padding: 5px;
+        padding: 2px;
     }
   }

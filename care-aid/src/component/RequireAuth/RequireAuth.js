@@ -19,12 +19,12 @@ const RequireAuth = ({ children }) => {
     }
     console.log(user)
     if (!user.emailVerified) {
-        return <div className='container text-center emailVerifySection'>
-            <div className="card w-50 mx-auto email__verification__card">
+        return <div className='container mx-auto mt-40 text-center'>
+            <div className="card w-50 w-1/3 border-dashed border-2 border-slate-300 mx-auto">
                 <div className="card-body py-5">
                     <p>Your email is not verified</p>
                     <p>Please verify your email</p>
-                    <button className='btn btn-primary' onClick={async () => {
+                    <button className=' w-52 mx-auto link link-primary' onClick={async () => {
                         await sendEmailVerification();
                         toast.success('Sent Email');
                         console.log('send email')
