@@ -2,7 +2,7 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import AppointmentData from './AppointmentData';
 import BookingModal from './BookingModal';
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const AvailableAppointment = ({ selected }) => {
     const [services, setServices] = useState([]);
@@ -21,6 +21,10 @@ const AvailableAppointment = ({ selected }) => {
                 }
             </div>
             {treatment && <BookingModal key={treatment._id} treatment={treatment} selected={selected} setTreatment={setTreatment}></BookingModal>}
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
     );
 };
