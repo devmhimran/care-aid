@@ -7,11 +7,12 @@ import toast, { Toaster } from 'react-hot-toast';
 const AvailableAppointment = ({ selected }) => {
     const [services, setServices] = useState([]);
     const [treatment, setTreatment] = useState(null);
+    const dateFormate = format(selected, 'PP');
     useEffect(() => {
-        fetch('http://localhost:5000/available')
+        fetch(`http://localhost:5000/available?date=${dateFormate}`)
             .then(res => res.json())
             .then(data => setServices(data))
-    }, []);
+    }, [dateFormate]);
     return (
         <div className='container py-16 mx-auto lg:py-20'>
             <p className='text-lg text-center text-primary font-semibold'>Available Services on {format(selected, 'PP')}</p>
