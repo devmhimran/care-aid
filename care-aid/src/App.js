@@ -11,6 +11,9 @@ import Register from './component/Register/Register';
 import ErrorPage from './component/ErrorPage/ErrorPage';
 import RequireAuth from './component/RequireAuth/RequireAuth';
 import Loading from './component/Loading/Loading';
+import Dashboard from './component/Dashboard/Dashboard';
+import MyAppointment from './component/MyAppointment/MyAppointment';
+import MyReview from './component/MyReview/MyReview';
 
 
 function App() {
@@ -33,6 +36,15 @@ function App() {
         } />
         <Route path="/register" element={<Register></Register>} />
         <Route path="/login" element={<Login></Login>} />
+
+
+
+        <Route path="dashboard" element={<Dashboard></Dashboard>} >
+            <Route index element={<MyAppointment></MyAppointment>} />
+            <Route path="myreview" element={<MyReview></MyReview>} />
+        </Route>
+
+
         <Route path="/loading" element={<Loading></Loading>} />
         <Route path="*" element={<ErrorPage></ErrorPage>} />
       </Routes>
