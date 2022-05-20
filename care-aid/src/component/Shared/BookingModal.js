@@ -5,7 +5,7 @@ import auth from '../firebase.init';
 import toast from 'react-hot-toast';
 
 const BookingModal = ({ treatment, selected, setTreatment }) => {
-  const { _id, name, slots } = treatment;
+  const { _id, name, slots,available } = treatment;
   const [user] = useAuthState(auth);
   const handleBookingForm = (e) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ const BookingModal = ({ treatment, selected, setTreatment }) => {
                       {name} Already Appointment Set
                     </p>
                     <p className="mt-1 text-sm text-gray-500">
-                      At {slot}
+                      At {data.booking.slot}
                     </p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ const BookingModal = ({ treatment, selected, setTreatment }) => {
         }
         setTreatment(null);
       })
-    console.log(date, slot, name, email, phone);
+    // console.log(date, slot, name, email, phone);
   }
   return (
     <div>
@@ -113,7 +113,7 @@ const BookingModal = ({ treatment, selected, setTreatment }) => {
               <input type="text" name='date' value={format(selected, 'PP')} className="input input-bordered w-full my-4" disabled />
               <select name='slot' className="select select-bordered w-full my-4">
                 {
-                  slots.map(data => <option key={data.toString()} value={data}>{data}</option>)
+                  available.map(data => <option key={data.toString()} value={data}>{data}</option>)
                 }
               </select>
               <input name='name' type="text" value={user.displayName} placeholder="Enter Name" className="input input-bordered w-full my-4" disabled />
