@@ -3,7 +3,7 @@ import React from 'react';
 const MyAppointment = () => {
     return (
         <div>
-            <h1>Appointment</h1>
+            <h1 className='text-2xl font-bold mb-5'>Appointment</h1>
             <div class="overflow-x-auto">
   <table class="table w-full">
     {/* <!-- head --> */}
