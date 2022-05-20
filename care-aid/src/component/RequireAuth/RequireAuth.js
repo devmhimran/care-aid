@@ -17,7 +17,6 @@ const RequireAuth = ({ children }) => {
     if(!user){
         return <Navigate to='/login' state={{from: location}} replace></Navigate>
     }
-    console.log(user)
     if (!user.emailVerified) {
         return <div className='container mx-auto mt-40 text-center'>
             <div className="card w-50 w-1/3 border-dashed border-2 border-slate-300 mx-auto">
@@ -27,7 +26,6 @@ const RequireAuth = ({ children }) => {
                     <button className=' w-52 mx-auto link link-primary' onClick={async () => {
                         await sendEmailVerification();
                         toast.success('Sent Email');
-                        console.log('send email')
                     }}>Resend</button>
                 </div>
             </div>

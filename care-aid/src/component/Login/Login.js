@@ -13,8 +13,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     let userError;
-
-    console.log(user)
     const onSubmit = (data) => {
         const email = data.email;
         const password = data.password;

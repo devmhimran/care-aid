@@ -39,7 +39,6 @@ const Register = () => {
     if(user){
         navigate(from, {replace:true});
     }
-    console.log(user)
     return (
         <div className='container mx-auto'>
             <div className="hero p-8 lg:p-40 rounded-2xl">

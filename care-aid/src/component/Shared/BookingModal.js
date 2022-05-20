@@ -33,7 +33,6 @@ const BookingModal = ({ treatment, selected, setTreatment,refetch }) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         if (data.success) {
           toast.custom((t) => (
             <div
@@ -100,7 +99,6 @@ const BookingModal = ({ treatment, selected, setTreatment,refetch }) => {
         refetch();
         setTreatment(null);
       })
-    // console.log(date, slot, name, email, phone);
   }
   return (
     <div>

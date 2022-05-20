@@ -5,9 +5,6 @@ import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    if(user){
-        console.log(user)
-    }
     const handleGoogleSignIn = ()=>{
         signInWithGoogle();
     }
