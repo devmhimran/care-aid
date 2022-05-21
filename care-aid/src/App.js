@@ -39,9 +39,13 @@ function App() {
 
 
 
-        <Route path="dashboard" element={<Dashboard></Dashboard>} >
-            <Route index element={<MyAppointment></MyAppointment>} />
-            <Route path="myreview" element={<MyReview></MyReview>} />
+        <Route path="dashboard" element={
+          <RequireAuth>
+            <Dashboard></Dashboard>
+          </RequireAuth>
+        } >
+          <Route index element={<MyAppointment></MyAppointment>} />
+          <Route path="myreview" element={<MyReview></MyReview>} />
         </Route>
 
 
