@@ -14,6 +14,7 @@ import Loading from './component/Loading/Loading';
 import Dashboard from './component/Dashboard/Dashboard';
 import MyAppointment from './component/MyAppointment/MyAppointment';
 import MyReview from './component/MyReview/MyReview';
+import Blog from './component/Blog/Blog';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About></About>} />
         <Route path="/reviews" element={<Reviews></Reviews>} />
+        <Route path="/blog" element={<Blog></Blog>} />
         <Route path="/appointment" element={
           <RequireAuth>
             <Appointment></Appointment>
